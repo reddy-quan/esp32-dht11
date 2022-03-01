@@ -1,10 +1,12 @@
-wired up:
+## wired up
+```
 DHT11      ESP32
 VCC   ---> VIN
 DATA  ---> D4
 GND   ---> GND
-
-Base on esp-idf project. https://github.com/espressif/esp-idf.git
+```
+Compile is based on esp-idf project. https://github.com/espressif/esp-idf.git
+I have search several code, all didn't work, this an avail one.
 
 ## Example folder contents
 
@@ -21,5 +23,5 @@ Below is short explanation of remaining files in the project folder.
 ├── main
 │   ├── CMakeLists.txt
 │   └── main.c
-└── README.md                  This is the file you are currently reading
+└── README.md            <---- This is the file you are currently reading
 ```
