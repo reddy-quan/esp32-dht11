@@ -9,13 +9,12 @@
 #include "string.h"
 #include "rom/ets_sys.h"
 
-#define DHT11_PIN   4		//定义DHT11的引脚
+#define DHT11_PIN   4	//DHT11 pin 4
 
 #define uchar unsigned char
 #define uint8 unsigned char
 #define uint16 unsigned short
 
-//温湿度定义
 uchar ucharFLAG, uchartemp;
 uchar Humi, Humi_small, Temp, Temp_small;
 uchar ucharT_data_H, ucharT_data_L, ucharRH_data_H, ucharRH_data_L, ucharcheckdata;
@@ -116,13 +115,11 @@ void DHT11(void)		//温湿传感启动
 		uchartemp = (ucharT_data_H_temp + ucharT_data_L_temp + ucharRH_data_H_temp + ucharRH_data_L_temp);
 		if (uchartemp == ucharcheckdata_temp)
 		{
-			//校验和一致，
 			ucharRH_data_H = ucharRH_data_H_temp;
 			ucharRH_data_L = ucharRH_data_L_temp;
 			ucharT_data_H = ucharT_data_H_temp;
 			ucharT_data_L = ucharT_data_L_temp;
 			ucharcheckdata = ucharcheckdata_temp;
-			//保存温度和湿度
 			Humi = ucharRH_data_H;
 			Humi_small = ucharRH_data_L;
 			Temp = ucharT_data_H;
@@ -132,7 +129,7 @@ void DHT11(void)		//温湿传感启动
 			Humi = 100;
 			Temp = 100;
 		}
-	} else			//没用成功读取，返回0
+	} else
 	{
 		Humi = 0, Temp = 0;
 	}
@@ -146,6 +143,6 @@ void app_main()
 	{
 		DHT11();	//读取温湿度
 		printf("Temp=%d.%d\tHumi=%d.%d%%\r\n", Temp, Temp_small, Humi, Humi_small);
-		vTaskDelay(300);	//延时300毫秒
+		vTaskDelay(pdMS_TO_TICKS(3000));//(300);
 	}
 }

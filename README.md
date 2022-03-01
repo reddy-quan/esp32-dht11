@@ -15,10 +15,10 @@ cd to your esp_idf folder
 . ./export.sh
 
 idf.py set-target esp32
-
+```
 * cd to this repo folder, then run
 idf.py build
-```
+
 ## esp32-dht11 folder contents
 
 The project **sample_project** contains one source file in C language [main.c](main/main.c). The file is located in folder [main](main).
