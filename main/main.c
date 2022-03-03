@@ -142,7 +142,7 @@ void app_main()
 	while (1)
 	{
 		DHT11();	//读取温湿度
-		printf("Temp=%d.%d\tHumi=%d.%d%%\r\n", Temp, Temp_small, Humi, Humi_small);
+		printf("Temp=%d.%dC\tHumi=%d.%d%%\r\n", Temp, Temp_small, Humi, Humi_small);
 		vTaskDelay(pdMS_TO_TICKS(3000));//(300);
 	}
 }
